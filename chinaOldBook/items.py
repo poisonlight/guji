@@ -10,5 +10,8 @@ import scrapy
 
 class ChinaoldbookItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    buji_classify_name = scrapy.Field()
+    two_classify_name = scrapy.Field()
+    book_name = scrapy.Field()
+    chapter_name = scrapy.Field()
+    content = scrapy.Field()

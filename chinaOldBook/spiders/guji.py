@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import time
+import re
 import requests
 import urllib.parse
-from scrapy import FormRequest, Request
+from scrapy import FormRequest
+from chinaOldBook.items import ChinaoldbookItem
 
 
 class GujiSpider(scrapy.Spider):
@@ -15,7 +17,6 @@ class GujiSpider(scrapy.Spider):
         yield scrapy.Request(self.login_url, callback=self.login)
 
     def login(self, response):
-        # print(response.text)
         formdata = {
             'act': 'submit',
             'duser': '有梦想的麻雀',
@@ -24,7 +25,6 @@ class GujiSpider(scrapy.Spider):
         }
         # string = urllib.parse.urlencode(formdata)
         yield FormRequest.from_response(response, formdata=formdata, callback=self.parse_login)
-        # yield requests.post(response, formdata=formdata, callback=self.parse_login)
 
     def parse_login(self, response):
         # print('>>>>>>>>'+response.text)
@@ -57,13 +57,12 @@ class GujiSpider(scrapy.Spider):
         for book in book_list:
             book_name = book.xpath("span/a/text()").extract_first()
             book_link = 'http://guji.artx.cn' + book.xpath("span/a/@href").extract_first()
-            yield scrapy.Request(book_link, callback=self.guBook, meta={"buji_classify_name": buji_classify_name, "two_classify_name": two_classify_name, "book_name": book_name, "book_link": book_link})
+            yield scrapy.Request(book_link, callback=self.guBook, meta={"buji_classify_name": buji_classify_name, "two_classify_name": two_classify_name, "book_name": book_name})
 
     def guBook(self, response):
         buji_classify_name = response.meta['buji_classify_name']
         two_classify_name = response.meta['two_classify_name']
         book_name = response.meta['book_name']
-        book_link = response.meta['book_link']
 
         chapter_list = response.xpath("//div[@class='dmain']/div[@id='dright']/div[@class='l_mulu_table']/div[@class='l_mulu_td']/ul/li")
         # headers = {
@@ -95,6 +94,23 @@ class GujiSpider(scrapy.Spider):
         book_name = response.meta['book_name']
         chapter_name = response.meta['chapter_name']
 
-        print(response.text)
-        # print(response.headers)
+        content = response.text
 
+        con = re.search('<div id="r_zhengwen">.*<div class="dright_show_foot">', content, re.S).group()
+        con1 = con.replace('<div id="r_zhengwen">', '').replace('<div class="dright_show_foot">', '').replace('</div>', '').replace('&nbsp', '').replace('<font class=bj_style>', '').replace('</font>', '').replace('<br>', '</p><p>').replace(r'\u3000', '')
+        con2 = re.sub('<a .*?>.*?</a>', '', con1)
+        mast_con = con2.replace("</p>", "", 1)
+        result = mast_con[::-1]
+        result1 = result.replace('>p<', '', 1)
+        result2 = result1[::-1]
+
+        item = ChinaoldbookItem()
+
+        item['buji_classify_name'] = buji_classify_name
+        item['two_classify_name'] = two_classify_name
+        item['book_name'] = book_name
+        item['chapter_name'] = chapter_name
+        item['content'] = result2
+
+        # print(item)
+        yield item
