@@ -18,83 +18,6 @@ class MysqlPipeline(object):
         self.db = pymysql.connect(host='localhost', port=3306, user='root', password='123456', db='hwss', charset='utf8')
         self.cursor = self.db.cursor()
 
-        # delete_table4 = "DROP TABLE hw_chinaguji_content"
-        # delete_table3 = "DROP TABLE hw_chinaguji_bookname"
-        # delete_table2 = "DROP TABLE hw_chinaguji_bookclassify"
-        # delete_table1 = "DROP TABLE hw_chinaguji_bujiclassify"
-        # try:
-        #     self.cursor.execute(delete_table4)
-        #     print('删除章节内容表成功')
-        #     self.cursor.execute(delete_table3)
-        #     print('删除书籍名称表成功')
-        #     self.cursor.execute(delete_table2)
-        #     print('删除书籍分类表成功')
-        #     self.cursor.execute(delete_table1)
-        #     print('删除部级分类表成功')
-        # except:
-        #     print('删除表失败')
-
-
-        create_table1_sql = """CREATE TABLE IF NOT EXISTS hw_chinaguji_bujiclassify (
-                            buji_id INT(11) NOT NULL AUTO_INCREMENT COMMENT '部级编号ID',
-                            buji_classify_name varchar(80) NOT NULL COMMENT '部级名称',
-                            PRIMARY KEY (buji_id),
-                            INDEX(buji_id))
-                            ENGINE=InnoDB, CHARACTER SET utf8 COLLATE utf8_general_ci;"""
-
-        try:
-            self.cursor.execute(create_table1_sql)
-            # print('部级分类表创建成功')
-        except:
-            print('部级分类表创建失败')
-
-
-        create_table2_sql = """CREATE TABLE IF NOT EXISTS hw_chinaguji_bookclassify (
-                            bookclassify_id INT(11) NOT NULL AUTO_INCREMENT COMMENT '书籍分类编号ID',
-                            bookclassify_name VARCHAR (100) NOT NULL COMMENT '书籍分类名称',
-                            relation_bujiclassify_id INT(11) NOT NULL COMMENT '关联部级分类编号ID',
-                            PRIMARY KEY (bookclassify_id),
-                            FOREIGN KEY(relation_bujiclassify_id) REFERENCES hw_chinaguji_bujiclassify(buji_id) on delete cascade on update cascade)
-                            ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;"""
-
-        try:
-            self.cursor.execute(create_table2_sql)
-            # print('书籍分类表创建成功')
-        except:
-            print('书籍分类表创建失败')
-
-
-        create_table3_sql = """CREATE TABLE IF NOT EXISTS hw_chinaguji_bookname (
-                            bookname_id INT(11) NOT NULL AUTO_INCREMENT COMMENT '书籍编号ID',
-                            bookname VARCHAR (200) NOT NULL COMMENT '书籍名称',
-                            relation_classify_id INT(11) NOT NULL COMMENT '关联书籍分类编号ID',
-                            PRIMARY KEY (bookname_id),
-                            FOREIGN KEY(relation_classify_id) REFERENCES hw_chinaguji_bookclassify(bookclassify_id) on delete cascade on update cascade)
-                            ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;"""
-
-        try:
-            self.cursor.execute(create_table3_sql)
-            # print('书籍名称表创建成功')
-        except:
-            print('书籍名称表创建失败')
-
-
-        create_table4_sql = """CREATE TABLE IF NOT EXISTS hw_chinaguji_content (
-                            content_id INT(11) NOT NULL AUTO_INCREMENT COMMENT '章节内容编号ID',
-                            chapter_name VARCHAR (300) NOT NULL COMMENT '章节名称',
-                            chapter_content LONGTEXT NOT NULL COMMENT '章节内容',
-                            relation_bookname_id INT(11) NOT NULL COMMENT '关联书籍编号ID',
-                            PRIMARY KEY (content_id),
-                            FOREIGN KEY(relation_bookname_id) REFERENCES hw_chinaguji_bookname(bookname_id) on delete cascade on update cascade)
-                            ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;"""
-
-        try:
-            self.cursor.execute(create_table4_sql)
-            # print('章节内容表创建成功')
-        except:
-            print('章节内容表创建失败')
-
-
         buji_classify_name = item['buji_classify_name']
 
         try:
@@ -172,25 +95,33 @@ class MysqlPipeline(object):
 
         try:
             # 查询章节名称是否存在章节内容表里面
-            select_table4 = "SELECT chapter_name FROM hw_chinaguji_content"
-            self.cursor.execute(select_table4)
-            result = self.cursor.fetchall()
-
-            bookchapter_list = []
-            for i in result:
-                a = str(i).strip().replace("'", "").replace("(", "").replace(")", "").replace(",", "")
-                bookchapter_list.append(a)
-
             select_bookname_id = "SELECT bookname_id FROM hw_chinaguji_bookname WHERE bookname='%s'" % (book_name)
             self.cursor.execute(select_bookname_id)
             reault = self.cursor.fetchone()
             buji_id = int(str(reault).strip().replace(",", "").replace("(", "").replace(")", ""))
 
-            if book_name not in bookchapter_list:
+            select_table4 = "SELECT chapter_name,relation_bookname_id FROM hw_chinaguji_content"
+            self.cursor.execute(select_table4)
+            result = self.cursor.fetchall()
+
+            bookchapter_list = []
+            global abc
+            for i in result:
+                abc = str(i).strip().replace("'", "").replace("(", "").replace(")", "").replace(",", "")
+                bookchapter_list.append(abc)
+
+            newstr = chapter_name + ' ' + str(buji_id)
+            # print(newstr)
+
+            if newstr not in bookchapter_list:
+                # print('False')
                 sql_insert_chaptercontent = "INSERT INTO hw_chinaguji_content(chapter_name, chapter_content, relation_bookname_id) VALUES('%s', '%s', '%d')" % (chapter_name, content, buji_id)
                 self.cursor.execute(sql_insert_chaptercontent)
                 print('{} 章节内容插入成功'.format(book_name))
+            # else:
+            #     print('True')
         except:
+            # pass
             print('{} 章节内容插入失败'.format(book_name))
 
         self.db.commit()
