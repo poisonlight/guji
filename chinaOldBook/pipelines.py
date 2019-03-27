@@ -6,6 +6,7 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import pymysql
+import time
 
 
 class ChinaoldbookPipeline(object):
@@ -18,7 +19,7 @@ class MysqlPipeline(object):
         self.db = pymysql.connect(host='localhost', port=3306, user='root', password='123456', db='hwss', charset='utf8')
         self.cursor = self.db.cursor()
 
-        buji_classify_name = item['buji_classify_name']
+        buji_classify_na = item['buji_classify_name']
 
         try:
             select_table1 = "SELECT buji_classify_name FROM hw_chinaguji_bujiclassify"
@@ -30,15 +31,17 @@ class MysqlPipeline(object):
                 a = str(i).strip().replace("'", "").replace("(", "").replace(")", "").replace(",", "")
                 buji_classify_list.append(a)
 
+            buji_classify_name = buji_classify_na.strip().replace("(", "").replace(")", "")
+
             if buji_classify_name not in buji_classify_list:
                 insert_table1 = "INSERT INTO hw_chinaguji_bujiclassify(buji_classify_name) VALUES ('%s')"%(buji_classify_name)
                 self.cursor.execute(insert_table1)
-                print('{} 部级分类名称插入成功'.format(buji_classify_name))
+                print('{} 部级分类名称插入成功'.format(buji_classify_na))
         except:
-            print('{} 部级分类名称插入失败'.format(buji_classify_name))
+            print('{} 部级分类名称插入失败'.format(buji_classify_na))
 
 
-        book_classify_name = item['two_classify_name']
+        book_classify_na = item['two_classify_name']
 
         try:
             # 查询部级下面的分类是否存在书籍分类表里面
@@ -56,15 +59,17 @@ class MysqlPipeline(object):
             reault = self.cursor.fetchone()
             buji_id = int(str(reault).strip().replace(",", "").replace("(", "").replace(")", ""))
 
+            book_classify_name = book_classify_na.strip().replace("(", "").replace(")", "")
+
             if book_classify_name not in book_classify_list:
                 sql_insert_bookclassify = "INSERT INTO hw_chinaguji_bookclassify(bookclassify_name, relation_bujiclassify_id) VALUES('%s', '%d')" %(book_classify_name, buji_id)
                 self.cursor.execute(sql_insert_bookclassify)
-                print('{} 分类名称插入成功'.format(book_classify_name))
+                print('{} 分类名称插入成功'.format(book_classify_na))
         except:
-            print('{} 分类名称插入失败'.format(book_classify_name))
+            print('{} 分类名称插入失败'.format(book_classify_na))
 
 
-        book_name = item['book_name']
+        book_na = item['book_name']
 
         try:
             # 查询书籍名称是否存在书籍名称表里面
@@ -76,21 +81,25 @@ class MysqlPipeline(object):
             for i in result:
                 a = str(i).strip().replace("'", "").replace("(", "").replace(")", "").replace(",", "")
                 bookname_list.append(a)
-
+            # print(bookname_list)
+            # print(book_name)
             select_bookclassify_id = "SELECT bookclassify_id FROM hw_chinaguji_bookclassify WHERE bookclassify_name='%s'" % (book_classify_name)
             self.cursor.execute(select_bookclassify_id)
             reault = self.cursor.fetchone()
             buji_id = int(str(reault).strip().replace(",", "").replace("(", "").replace(")", ""))
 
+            book_name = book_na.strip().replace("(", "").replace(")", "")  # 同样去掉括号，防止字符串中有括号导致数据插入重复
+
             if book_name not in bookname_list:
                 sql_insert_bookname = "INSERT INTO hw_chinaguji_bookname(bookname, relation_classify_id) VALUES('%s', '%d')" % (book_name, buji_id)
                 self.cursor.execute(sql_insert_bookname)
-                print('{} 书籍名称插入成功'.format(book_name))
+                print('{} 书籍名称插入成功'.format(book_na))
         except:
-            print('{} 书籍名称插入失败'.format(book_name))
+            # pass
+            print('{} 书籍名称插入失败'.format(book_na))
 
 
-        chapter_name = item['chapter_name']
+        chapter_na = item['chapter_name']
         content = item['content']
 
         try:
@@ -110,18 +119,16 @@ class MysqlPipeline(object):
                 abc = str(i).strip().replace("'", "").replace("(", "").replace(")", "").replace(",", "")
                 bookchapter_list.append(abc)
 
+            chapter_name = chapter_na.strip().replace("(", "").replace(")", "")
+
             newstr = chapter_name + ' ' + str(buji_id)
-            # print(newstr)
 
             if newstr not in bookchapter_list:
-                # print('False')
+                time.sleep(2)
                 sql_insert_chaptercontent = "INSERT INTO hw_chinaguji_content(chapter_name, chapter_content, relation_bookname_id) VALUES('%s', '%s', '%d')" % (chapter_name, content, buji_id)
                 self.cursor.execute(sql_insert_chaptercontent)
                 print('{} 章节内容插入成功'.format(book_name))
-            # else:
-            #     print('True')
         except:
-            # pass
             print('{} 章节内容插入失败'.format(book_name))
 
         self.db.commit()

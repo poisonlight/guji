@@ -49,6 +49,26 @@ class GujiSpider(scrapy.Spider):
                 two_classify_link = two_classify.xpath("@href").extract_first()
                 yield scrapy.Request(two_classify_link, callback=self.bookClassify, meta={"buji_classify_name": buji_classify_name, "two_classify_name": two_classify_name})
 
+        buji_classify1 = response.xpath("//div[@class='dmain']/div[@id='dright']/div[@class='dleft_guji']/div[@class='dg_title'][position()>6]")
+
+        for wen in buji_classify1:
+            buji_classify_name = '古籍文言文'
+            buji_classify_list = wen.xpath("p/a[@href='/wyw/']/following-sibling::a")
+            for we in buji_classify_list:
+                two_classify_name = we.xpath("h2/text()").extract_first()
+                two_classify_link = 'http://guji.artx.cn/' + we.xpath("@href").extract_first()
+                yield scrapy.Request(two_classify_link, callback=self.wenYanwen, meta={"buji_classify_name": buji_classify_name, "two_classify_name": two_classify_name})
+
+    def wenYanwen(self, response):
+        buji_classify_name = response.meta['buji_classify_name']
+        two_classify_name = response.meta['two_classify_name']
+
+        guwen_list = response.xpath("//div[@class='dmain']/div[@id='dright']/div[@class='dwyw']/div[@class='dg2']/a")
+        for guwen in guwen_list:
+            guwen_name = guwen.xpath("text()").extract_first()
+            guwen_link = guwen.xpath("@href").extract_first()
+            yield scrapy.Request(guwen_link, callback=self.content2, meta={"buji_classify_name": buji_classify_name, "two_classify_name": two_classify_name, "guwen_name": guwen_name})
+
     def bookClassify(self, response):
         buji_classify_name = response.meta['buji_classify_name']
         two_classify_name = response.meta['two_classify_name']
@@ -112,5 +132,30 @@ class GujiSpider(scrapy.Spider):
         item['chapter_name'] = chapter_name
         item['content'] = result2
 
+        # print(item)
+        yield item
+
+    def content2(self, response):
+        buji_classify_name = response.meta['buji_classify_name']
+        two_classify_name = response.meta['two_classify_name']
+        guwen_name = response.meta['guwen_name']
+
+        content = response.text
+
+        con = re.search('<div id="r_zhengwen">.*<div class="dleft">', content, re.S).group()
+        con1 = con.replace('<div id="r_zhengwen">', '').replace('<div class="dright_show_foot">', '').replace('</div>', '').replace('&nbsp', '').replace('<font class=bj_style>', '').replace('</font>', '').replace('<br>', '</p><p>').replace(r'\u3000', '').replace(r'<div class="dleft">', '')
+        con2 = re.sub('<a .*?>.*?</a>', '', con1)
+        mast_con = con2.replace("</p>", "", 1)
+        result = mast_con[::-1]
+        result1 = result.replace('>p<', '', 1)
+        mastcontent = result1[::-1]
+
+        item = ChinaoldbookItem()
+
+        item['buji_classify_name'] = buji_classify_name
+        item['two_classify_name'] = two_classify_name
+        item['book_name'] = guwen_name
+        item['chapter_name'] = ''
+        item['content'] = mastcontent
         # print(item)
         yield item
