@@ -34,7 +34,7 @@ class MysqlPipeline(object):
             buji_classify_name = buji_classify_na.strip().replace("(", "").replace(")", "")
 
             if buji_classify_name not in buji_classify_list:
-                insert_table1 = "INSERT INTO hw_chinaguji_bujiclassify(buji_classify_name) VALUES ('%s')"%(buji_classify_name)
+                insert_table1 = "INSERT INTO hw_chinaguji_bujiclassify(buji_classify_name) VALUES ('%s')"%(buji_classify_na)
                 self.cursor.execute(insert_table1)
                 print('{} 部级分类名称插入成功'.format(buji_classify_na))
         except:
@@ -62,7 +62,7 @@ class MysqlPipeline(object):
             book_classify_name = book_classify_na.strip().replace("(", "").replace(")", "")
 
             if book_classify_name not in book_classify_list:
-                sql_insert_bookclassify = "INSERT INTO hw_chinaguji_bookclassify(bookclassify_name, relation_bujiclassify_id) VALUES('%s', '%d')" %(book_classify_name, buji_id)
+                sql_insert_bookclassify = "INSERT INTO hw_chinaguji_bookclassify(bookclassify_name, relation_bujiclassify_id) VALUES('%s', '%d')" %(book_classify_na, buji_id)
                 self.cursor.execute(sql_insert_bookclassify)
                 print('{} 分类名称插入成功'.format(book_classify_na))
         except:
@@ -91,7 +91,7 @@ class MysqlPipeline(object):
             book_name = book_na.strip().replace("(", "").replace(")", "")  # 同样去掉括号，防止字符串中有括号导致数据插入重复
 
             if book_name not in bookname_list:
-                sql_insert_bookname = "INSERT INTO hw_chinaguji_bookname(bookname, relation_classify_id) VALUES('%s', '%d')" % (book_name, buji_id)
+                sql_insert_bookname = "INSERT INTO hw_chinaguji_bookname(bookname, relation_classify_id) VALUES('%s', '%d')" % (book_na, buji_id)
                 self.cursor.execute(sql_insert_bookname)
                 print('{} 书籍名称插入成功'.format(book_na))
         except:
@@ -125,7 +125,7 @@ class MysqlPipeline(object):
 
             if newstr not in bookchapter_list:
                 time.sleep(2)
-                sql_insert_chaptercontent = "INSERT INTO hw_chinaguji_content(chapter_name, chapter_content, relation_bookname_id) VALUES('%s', '%s', '%d')" % (chapter_name, content, buji_id)
+                sql_insert_chaptercontent = "INSERT INTO hw_chinaguji_content(chapter_name, chapter_content, relation_bookname_id) VALUES('%s', '%s', '%d')" % (chapter_na, content, buji_id)
                 self.cursor.execute(sql_insert_chaptercontent)
                 print('{} 章节内容插入成功'.format(book_name))
         except:
