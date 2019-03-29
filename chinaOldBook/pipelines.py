@@ -104,7 +104,7 @@ class MysqlPipeline(object):
 
         try:
             # 查询章节名称是否存在章节内容表里面
-            select_bookname_id = "SELECT bookname_id FROM hw_chinaguji_bookname WHERE bookname='%s'" % (book_name)
+            select_bookname_id = "SELECT bookname_id FROM hw_chinaguji_bookname WHERE bookname='%s'" % (book_na)
             self.cursor.execute(select_bookname_id)
             reault = self.cursor.fetchone()
             buji_id = int(str(reault).strip().replace(",", "").replace("(", "").replace(")", ""))
@@ -124,12 +124,12 @@ class MysqlPipeline(object):
             newstr = chapter_name + ' ' + str(buji_id)
 
             if newstr not in bookchapter_list:
-                time.sleep(2)
-                sql_insert_chaptercontent = "INSERT INTO hw_chinaguji_content(chapter_name, chapter_content, relation_bookname_id) VALUES('%s', '%s', '%d')" % (chapter_na, content, buji_id)
+                time.sleep(1)
+                sql_insert_chaptercontent = "INSERT INTO hw_chinaguji_content(chapter_name, chapter_content, relation_bookname_id) VALUES('%s', '%s', '%d')" % (chapter_name, content, buji_id)
                 self.cursor.execute(sql_insert_chaptercontent)
-                print('{} 章节内容插入成功'.format(book_name))
+                print('{} 章节内容插入成功'.format(book_na))
         except:
-            print('{} 章节内容插入失败'.format(book_name))
+            print('{} 章节内容插入失败'.format(book_na))
 
         self.db.commit()
         self.cursor.close()
