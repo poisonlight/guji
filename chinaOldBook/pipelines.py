@@ -125,7 +125,7 @@ class MysqlPipeline(object):
 
             if newstr not in bookchapter_list:
                 time.sleep(1)
-                sql_insert_chaptercontent = "INSERT INTO hw_chinaguji_content(chapter_name, chapter_content, relation_bookname_id) VALUES('%s', '%s', '%d')" % (chapter_name, content, buji_id)
+                sql_insert_chaptercontent = "INSERT INTO hw_chinaguji_content(chapter_name, chapter_content, relation_bookname_id) VALUES('%s', '%s', '%d')" % (chapter_na, content, buji_id)
                 self.cursor.execute(sql_insert_chaptercontent)
                 print('{} 章节内容插入成功'.format(book_na))
         except:

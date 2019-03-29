@@ -24,21 +24,21 @@
       <file leaf-file-name="pipelines.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chinaOldBook/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="106" column="111" lean-forward="false" selection-start-line="106" selection-start-column="104" selection-end-line="106" selection-end-column="111" />
+            <state relative-caret-position="567">
+              <caret line="126" column="29" lean-forward="true" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
               <folding>
                 <element signature="e#194#208#0" expanded="true" />
-                <marker date="1553828966362" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-                <marker date="1553828966362" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
-                <marker date="1553828966362" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-                <marker date="1553828966362" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-                <marker date="1553828966362" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
-                <marker date="1553828966362" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
-                <marker date="1553828966362" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-                <marker date="1553828966362" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
-                <marker date="1553828966362" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
-                <marker date="1553828966362" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
-                <marker date="1553828966362" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
+                <marker date="1553829255461" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+                <marker date="1553829255461" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
+                <marker date="1553829255461" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+                <marker date="1553829255461" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+                <marker date="1553829255461" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
+                <marker date="1553829255461" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
+                <marker date="1553829255461" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+                <marker date="1553829255461" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
+                <marker date="1553829255461" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
+                <marker date="1553829255461" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
+                <marker date="1553829255461" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
               </folding>
             </state>
           </provider>
@@ -525,7 +525,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.108208954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -566,17 +566,17 @@
           <caret line="36" column="123" lean-forward="false" selection-start-line="36" selection-start-column="123" selection-end-line="36" selection-end-column="123" />
           <folding>
             <element signature="e#194#208#0" expanded="true" />
-            <marker date="1553828966362" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-            <marker date="1553828966362" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
-            <marker date="1553828966362" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-            <marker date="1553828966362" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-            <marker date="1553828966362" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
-            <marker date="1553828966362" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
-            <marker date="1553828966362" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-            <marker date="1553828966362" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
-            <marker date="1553828966362" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
-            <marker date="1553828966362" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
-            <marker date="1553828966362" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
+            <marker date="1553829255461" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+            <marker date="1553829255461" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
+            <marker date="1553829255461" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+            <marker date="1553829255461" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+            <marker date="1553829255461" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
+            <marker date="1553829255461" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
+            <marker date="1553829255461" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+            <marker date="1553829255461" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
+            <marker date="1553829255461" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
+            <marker date="1553829255461" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
+            <marker date="1553829255461" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
           </folding>
         </state>
       </provider>
@@ -653,17 +653,17 @@
           <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="e#194#208#0" expanded="true" />
-            <marker date="1553828966362" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-            <marker date="1553828966362" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
-            <marker date="1553828966362" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-            <marker date="1553828966362" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-            <marker date="1553828966362" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
-            <marker date="1553828966362" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
-            <marker date="1553828966362" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-            <marker date="1553828966362" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
-            <marker date="1553828966362" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
-            <marker date="1553828966362" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
-            <marker date="1553828966362" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
+            <marker date="1553829255461" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+            <marker date="1553829255461" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
+            <marker date="1553829255461" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+            <marker date="1553829255461" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+            <marker date="1553829255461" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
+            <marker date="1553829255461" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
+            <marker date="1553829255461" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+            <marker date="1553829255461" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
+            <marker date="1553829255461" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
+            <marker date="1553829255461" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
+            <marker date="1553829255461" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
           </folding>
         </state>
       </provider>
@@ -739,17 +739,17 @@
           <caret line="31" column="63" lean-forward="true" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
           <folding>
             <element signature="e#194#208#0" expanded="true" />
-            <marker date="1553828966362" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-            <marker date="1553828966362" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
-            <marker date="1553828966362" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-            <marker date="1553828966362" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-            <marker date="1553828966362" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
-            <marker date="1553828966362" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
-            <marker date="1553828966362" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-            <marker date="1553828966362" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
-            <marker date="1553828966362" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
-            <marker date="1553828966362" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
-            <marker date="1553828966362" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
+            <marker date="1553829255461" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+            <marker date="1553829255461" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
+            <marker date="1553829255461" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+            <marker date="1553829255461" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+            <marker date="1553829255461" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
+            <marker date="1553829255461" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
+            <marker date="1553829255461" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+            <marker date="1553829255461" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
+            <marker date="1553829255461" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
+            <marker date="1553829255461" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
+            <marker date="1553829255461" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
           </folding>
         </state>
       </provider>
@@ -799,17 +799,17 @@
           <caret line="31" column="63" lean-forward="true" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
           <folding>
             <element signature="e#194#208#0" expanded="true" />
-            <marker date="1553828966362" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-            <marker date="1553828966362" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
-            <marker date="1553828966362" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-            <marker date="1553828966362" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-            <marker date="1553828966362" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
-            <marker date="1553828966362" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
-            <marker date="1553828966362" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-            <marker date="1553828966362" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
-            <marker date="1553828966362" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
-            <marker date="1553828966362" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
-            <marker date="1553828966362" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
+            <marker date="1553829255461" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+            <marker date="1553829255461" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
+            <marker date="1553829255461" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+            <marker date="1553829255461" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+            <marker date="1553829255461" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
+            <marker date="1553829255461" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
+            <marker date="1553829255461" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+            <marker date="1553829255461" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
+            <marker date="1553829255461" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
+            <marker date="1553829255461" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
+            <marker date="1553829255461" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
           </folding>
         </state>
       </provider>
@@ -955,21 +955,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chinaOldBook/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="106" column="111" lean-forward="false" selection-start-line="106" selection-start-column="104" selection-end-line="106" selection-end-column="111" />
+        <state relative-caret-position="567">
+          <caret line="126" column="29" lean-forward="true" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
           <folding>
             <element signature="e#194#208#0" expanded="true" />
-            <marker date="1553828966362" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-            <marker date="1553828966362" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
-            <marker date="1553828966362" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-            <marker date="1553828966362" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
-            <marker date="1553828966362" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
-            <marker date="1553828966362" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
-            <marker date="1553828966362" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
-            <marker date="1553828966362" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
-            <marker date="1553828966362" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
-            <marker date="1553828966362" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
-            <marker date="1553828966362" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
+            <marker date="1553829255461" expanded="true" signature="653:709" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+            <marker date="1553829255461" expanded="true" signature="1204:1275" ph="INSERT INTO hw_chinaguji_bujiclassify... " />
+            <marker date="1553829255461" expanded="true" signature="1620:1675" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+            <marker date="1553829255461" expanded="true" signature="2017:2092" ph="SELECT buji_... hw_chinaguji_bujiclassify" />
+            <marker date="1553829255461" expanded="true" signature="2509:2610" ph="INSERT INTO hw_chinaguji_bookclassify... " />
+            <marker date="1553829255461" expanded="true" signature="2951:2993" ph="SELECT bookn... hw_chinaguji_bookname" />
+            <marker date="1553829255461" expanded="true" signature="3394:3476" ph="SELECT bookc... hw_chinaguji_bookclassify" />
+            <marker date="1553829255461" expanded="true" signature="3889:3973" ph="INSERT INTO hw_chinaguji_bookname... " />
+            <marker date="1553829255461" expanded="true" signature="4348:4413" ph="SELECT bookn... hw_chinaguji_bookname" />
+            <marker date="1553829255461" expanded="true" signature="4651:4717" ph="SELECT chapt... hw_chinaguji_content" />
+            <marker date="1553829255461" expanded="true" signature="5307:5417" ph="INSERT INTO hw_chinaguji_content... " />
           </folding>
         </state>
       </provider>
